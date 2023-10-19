@@ -15,7 +15,6 @@
     "@shopify/app": "3.49.7",
     "@shopify/cli": "3.49.7",
     "axios": "^1.5.1",
-    "csv-parser": "^3.0.0",
     "multer": "^1.4.5-lts.1",
     "papaparse": "^5.4.1",
     "react-papaparse": "^4.3.0",

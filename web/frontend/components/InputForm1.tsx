@@ -108,7 +108,11 @@ const createPages = async () => {
     console.log(cityName);
     await handlesubmit1(cityName);
   }
-   setFormValues({
+   
+  };
+  const handleReset = async () =>{
+    setProgress(0);
+    setFormValues({
       title: '',
       author: '',
       handle: '',
@@ -117,8 +121,7 @@ const createPages = async () => {
       metatitle: '',
       metadescription: '',
     });
-  };
-  
+  }
   const characterCount = formValues.metadescription.length;
   return (
       <div>
@@ -203,6 +206,7 @@ const createPages = async () => {
         Character Count: {characterCount} / Character Limit: {characterLimit}
       </p>
         <Button submit>Submit</Button>
+        <Button onClick={handleReset}>Reset</Button>
       </FormLayout>
     </Form>
     <ProgressBar progress={progress} size="large" />

@@ -4,7 +4,6 @@ import { Select, LegacyCard, FormLayout,  LegacyStack, Divider } from '@shopify/
 import CityTag from './CityTag';
 import InputForm1 from './InputForm1';
 import {cityNamesUSA, cityNamesCANADA, cityNamesAustralia} from './cityList';
-import InputFormNew from './InputFormNew';
 
 const countryOptions = [
   { label: 'USA', value: 'USA' },
@@ -20,7 +19,7 @@ function ParentComponent() {
     setSelectedCountry(city);
     if(city === 'USA'){
       setSelectedCity(cityNamesUSA);
-    }else if(city === "CANADA"){
+    }else if(city === 'CANADA'){
       setSelectedCity(cityNamesCANADA);
     }else if(city === 'AUSTRALIA'){
       setSelectedCity(cityNamesAustralia);
@@ -30,18 +29,15 @@ function ParentComponent() {
   return (
     <LegacyCard sectioned>
       <FormLayout>
-        
           <Select
             label="Select City"
             options={countryOptions}
             value={selectedCountry}
             onChange={handleCountryChange}
           />
-       
       </FormLayout>
       <CityTag cityNames={SelectedCity}  />
       <InputForm1 cityNames={SelectedCity} />
-      {/* <InputFormNew cityNames={SelectedCity} /> */}
     </LegacyCard>
   );
 }
