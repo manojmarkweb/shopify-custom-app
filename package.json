@@ -16,8 +16,6 @@
     "@shopify/cli": "3.49.7",
     "axios": "^1.5.1",
     "multer": "^1.4.5-lts.1",
-    "papaparse": "^5.4.1",
-    "react-papaparse": "^4.3.0",
     "shopify-api-node": "^3.12.7"
   },
   "author": "Lenovo-pc",

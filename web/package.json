@@ -17,8 +17,6 @@
     "@shopify/shopify-app-session-storage-sqlite": "^1.2.3",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
-    "papaparse": "^5.4.1",
-    "react-papaparse": "^4.3.0",
     "serve-static": "^1.14.1"
   },
   "devDependencies": {
