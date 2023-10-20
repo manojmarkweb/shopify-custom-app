@@ -2,18 +2,18 @@
 
 name = "node-testing-app1"
 client_id = "64c5d7f017e8f83c27045aca4074895c"
-application_url = "https://friendly-outdoors-thu-oval.trycloudflare.com"
+application_url = "https://shareholders-doll-victory-onto.trycloudflare.com"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products,read_content,write_content"
+scopes = "write_products,read_content,write_content, write_themes, read_themes"
 
 [auth]
 redirect_urls = [
-  "https://friendly-outdoors-thu-oval.trycloudflare.com/auth/callback",
-  "https://friendly-outdoors-thu-oval.trycloudflare.com/auth/shopify/callback",
-  "https://friendly-outdoors-thu-oval.trycloudflare.com/api/auth/callback"
+  "https://shareholders-doll-victory-onto.trycloudflare.com/auth/callback",
+  "https://shareholders-doll-victory-onto.trycloudflare.com/auth/shopify/callback",
+  "https://shareholders-doll-victory-onto.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

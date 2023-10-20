@@ -10,7 +10,7 @@ primary_region = "ams"
   PORT = "8081"
   HOST = "https://throbbing-moon-9283.fly.dev"
   SHOPIFY_API_KEY = "64c5d7f017e8f83c27045aca4074895c"
-  SCOPES = "write_products,read_content,write_content"
+  SCOPES = "write_products,read_content,write_content, write_themes, read_themes"
 
 [build]
 

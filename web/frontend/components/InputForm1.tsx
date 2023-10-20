@@ -1,7 +1,7 @@
 import React  from "react";
 import { useAppQuery, useAuthenticatedFetch } from "../hooks";
 
-import {Form, FormLayout, TextField, Button, Select, ProgressBar} from '@shopify/polaris';
+import {Form, FormLayout, TextField, Button, Select, ProgressBar, ButtonGroup} from '@shopify/polaris';
 
 import {useState, useCallback, useEffect} from 'react';
 
@@ -60,6 +60,26 @@ export default function InputForm1({ cityNames }) {
       setProgress(newProgress);
     }
   }, [totalCompleted, cityNames]);
+  const themeFetch = async() =>{
+    try{
+        const response = await fetch("/api/themes", {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json', // Set content type to JSON
+          },
+        });
+        const responseData = await response.json();
+        console.log(responseData);
+    }catch(err){
+
+    }
+  }
+
+  useEffect(() =>{
+      
+    themeFetch();
+    
+  }, []);
   
 const handlesubmit1 = async (cityName) =>{
   const title1 =  formValues.title.replace('${cityName}', cityName);
@@ -105,7 +125,7 @@ const handlesubmit1 = async (cityName) =>{
 }
 const createPages = async () => {
   for (const cityName of cityNames) {
-    console.log(cityName);
+    
     await handlesubmit1(cityName);
   }
    
@@ -122,7 +142,9 @@ const createPages = async () => {
       metadescription: '',
     });
   }
+  
   const characterCount = formValues.metadescription.length;
+  
   return (
       <div>
     <Form onSubmit={createPages}>
@@ -152,7 +174,6 @@ const createPages = async () => {
         onChange={(value) => handleFieldChange('author', value)}
         value={formValues.author}
         />
-        
         <TextField
           value={formValues.template}
           onChange={(value) => handleFieldChange('template', value)}
@@ -168,7 +189,7 @@ const createPages = async () => {
         <TextField
           value={formValues.metafield}
           onChange={(value) => handleFieldChange('metafield', value) }
-          label="metafield Name"
+          label="Metafield Name"
           type="text"
           autoComplete=""
           helpText={
@@ -180,7 +201,7 @@ const createPages = async () => {
         <TextField
           value={formValues.metatitle}
           onChange={(value) => handleFieldChange('metatitle', value)}
-          label="Metatitle"
+          label="Meta Title"
           type="text"
           autoComplete=""
           helpText={
@@ -192,21 +213,25 @@ const createPages = async () => {
          <TextField
           value={formValues.metadescription}
           onChange={(value) => handleFieldChange('metadescription', value)}
-          label="Metadescription"
+          label="Meta Descriptions"
           type="text"
           autoComplete=""
           multiline={4}
           helpText={
             <span>
-              Enter Meta Descripton For Page
+              Enter Meta Descriptons For Page
             </span>
           }
         />
         <p>
         Character Count: {characterCount} / Character Limit: {characterLimit}
       </p>
+      <div style={{ marginBottom: '20px' }}>
+      <ButtonGroup >
         <Button submit>Submit</Button>
         <Button onClick={handleReset}>Reset</Button>
+      </ButtonGroup>
+      </div>
       </FormLayout>
     </Form>
     <ProgressBar progress={progress} size="large" />

@@ -8,6 +8,7 @@ import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
 import GDPRWebhookHandlers from "./gdpr.js";
 import pageCreater from "./page-creator.js";
+import themeFetcher from './themeFetcher.js';
 // import pageResponse from "./page-creator.js";
 
 
@@ -41,6 +42,17 @@ app.post(
 app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
+
+app.get("/api/themes", async(_req, res)=>{
+  let status = 200;
+  let error = null;
+
+  try{
+    await themeFetcher(res.locals.shopify.session);
+  }catch(e){
+    console.log("Failed to Fetch Theme");
+  }
+})
 
 
 app.post("/api/pages", async(_req, res) =>{
