@@ -1,18 +1,18 @@
-# fly.toml app configuration file generated for fragrant-sun-1837 on 2023-10-18T19:03:30+05:30
+# fly.toml app configuration file generated for throbbing-moon-9283 on 2023-10-19T11:11:39+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "fragrant-sun-1837"
-primary_region = "atl"
-
-[build]
+app = "throbbing-moon-9283"
+primary_region = "ams"
 
 [env]
-  HOST = "https://fragrant-sun-1837.fly.dev"
   PORT = "8081"
-  SCOPES = "write_products,read_content,write_content"
+  HOST = "https://throbbing-moon-9283.fly.dev"
   SHOPIFY_API_KEY = "64c5d7f017e8f83c27045aca4074895c"
+  SCOPES = "write_products,read_content,write_content"
+
+[build]
 
 [http_service]
   internal_port = 8081
