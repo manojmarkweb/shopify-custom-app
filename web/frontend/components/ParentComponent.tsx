@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Select, LegacyCard, FormLayout,  LegacyStack, Divider, AlphaCard, Text } from '@shopify/polaris';
+import { Select, LegacyCard, FormLayout,  LegacyStack, Divider, AlphaCard, Text, ButtonGroup, Button } from '@shopify/polaris';
 import CityTag from './CityTag';
 import InputForm1 from './InputForm1';
 import {cityNamesUSA, cityNamesCANADA, cityNamesAustralia} from './cityList';
@@ -18,6 +18,7 @@ function ParentComponent() {
   const [SelectedCity, setSelectedCity] = useState(['']);
   const [SelectedCityDescription, setSelectedCityDescription] = useState('');
   const [selectedCountryFlag, setSelectedCountryFlag]= useState(false);
+ 
 
   const handleCountryChange = (city) => {
     setSelectedCountry(city);
@@ -62,6 +63,7 @@ function ParentComponent() {
       
       {/* <CityTag cityNames={SelectedCity}  /> */}
       <InputForm1 cityNames={SelectedCity} />
+      
     </LegacyCard>
   );
 }

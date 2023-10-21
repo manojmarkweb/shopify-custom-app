@@ -2,7 +2,7 @@
 
 name = "node-testing-app1"
 client_id = "64c5d7f017e8f83c27045aca4074895c"
-application_url = "https://shareholders-doll-victory-onto.trycloudflare.com"
+application_url = "https://fellow-forest-usb-sectors.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products,read_content,write_content, write_themes, read_themes"
 
 [auth]
 redirect_urls = [
-  "https://shareholders-doll-victory-onto.trycloudflare.com/auth/callback",
-  "https://shareholders-doll-victory-onto.trycloudflare.com/auth/shopify/callback",
-  "https://shareholders-doll-victory-onto.trycloudflare.com/api/auth/callback"
+  "https://fellow-forest-usb-sectors.trycloudflare.com/auth/callback",
+  "https://fellow-forest-usb-sectors.trycloudflare.com/auth/shopify/callback",
+  "https://fellow-forest-usb-sectors.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

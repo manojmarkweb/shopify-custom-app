@@ -10,6 +10,7 @@ import GDPRWebhookHandlers from "./gdpr.js";
 import pageCreater from "./page-creator.js";
 import themeFetcher from './themeFetcher.js';
 // import pageResponse from "./page-creator.js";
+import themeAssetFetcher from "./themeAssetFetcher.js";
 
 
 const PORT = parseInt(
@@ -43,19 +44,44 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
 
-app.get("/api/themes", async(_req, res)=>{
-  let status = 200;
-  let error = null;
+// app.get("/admin/api/themes", async(_req, res)=>{
+//   let status = 200;
+//   let error = null;
 
+//   try{
+//     await themeFetcher(res.locals.shopify.session);
+//   }catch(e){
+//     console.log("Failed to Fetch Theme");
+//   }
+// })
+
+
+app.get("/api/themes", async (req, res) => {
+  try {
+    const themes = await themeFetcher(res.locals.shopify.session);
+    res.status(200).json({ themes });
+    
+  } catch (error) {
+    console.error("Failed to Fetch Themes:", error);
+    res.status(500).json({ error: "Failed to fetch themes" });
+  }
+});
+
+app.get("/api/themes/:themeId/assets", async (req, res) =>{
   try{
-    await themeFetcher(res.locals.shopify.session);
-  }catch(e){
-    console.log("Failed to Fetch Theme");
+    const mainThemeId = req.params.themeId;
+    const themesAsset = await themeAssetFetcher(res.locals.shopify.session, mainThemeId);
+    res.status(200).json({themesAsset});
+  }
+  catch(error){
+    console.error("Failed to Fetch Themes Assets:", error);
+    res.status(500).json({ error: "Failed to fetch themes Assets" });
   }
 })
 
-
 app.post("/api/pages", async(_req, res) =>{
+  
+  
   let status = 200;
   let error  = null;
 
@@ -75,6 +101,7 @@ app.post("/api/pages", async(_req, res) =>{
     error = e.message;
   }
   res.status(status).send({success: status === 200, error });
+
 });
 
 
